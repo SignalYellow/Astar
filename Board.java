@@ -48,7 +48,7 @@ public class Board {
 					continue;
 				}
 				
-				if(board[i][j] == 0 && i == l-1 && j == l-1){
+				if(board[i][j] == 0 ){
 					continue;
 				}
 
@@ -110,7 +110,7 @@ public class Board {
 			}
 		}
 		
-		
+		int move = -1;
 		
 		if(num == 1){
 			if(z_y  <=  0){
@@ -118,7 +118,7 @@ public class Board {
 			}
 			
 			
-			int move = nBoard[z_y-1][z_x];
+			move =nBoard[z_y-1][z_x];
 			if(prev == move) return null;
 			nBoard[z_y][z_x] = move;
 			nBoard[z_y-1][z_x] = 0;
@@ -129,7 +129,7 @@ public class Board {
 				return null;
 			}
 			
-			int move = nBoard[z_y+1][z_x];
+			move = nBoard[z_y+1][z_x];
 			if(prev == move) return null;
 			nBoard[z_y][z_x] = move;
 			nBoard[z_y+1][z_x] = 0;
@@ -139,7 +139,7 @@ public class Board {
 				return null;
 			}
 			
-			int move = nBoard[z_y][z_x-1];
+			move = nBoard[z_y][z_x-1];
 			if(prev == move) return null;
 			nBoard[z_y][z_x] = move;
 			nBoard[z_y][z_x-1] = 0;
@@ -149,7 +149,7 @@ public class Board {
 				return null;
 			}
 			
-			int move = nBoard[z_y][z_x+1];
+			move = nBoard[z_y][z_x+1];
 			if(prev == move) return null;
 			nBoard[z_y][z_x] = move;
 			nBoard[z_y][z_x+1] = 0;
@@ -158,7 +158,7 @@ public class Board {
 		
 		List<Integer> list = new ArrayList<Integer>();
 		list.addAll(this.path);
-		list.add(nBoard[z_x][z_y]);
+		list.add(move);
 		
 		return new Board(nBoard,this.count+1,list);
 			
