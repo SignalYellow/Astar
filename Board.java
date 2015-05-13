@@ -3,7 +3,6 @@ package Astar;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators.PrecedingIterator;
 
 public class Board {
 	int[][] board;
@@ -35,16 +34,16 @@ public class Board {
 	
 
 	/**
-	 * •]‰¿ŠÖ”:ˆÊ’u‚ª³‚µ‚­‚È‚¢ƒ^ƒCƒ‹‚Ì”
+	 * ï¿½]ï¿½ï¿½ï¿½Öï¿½:ï¿½Ê’uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Ìï¿½
 	 * 
-	 * @return •]‰¿’l -1 ‚Ì‚Æ‚«Š®¬ ‚»‚Ì‘¼‚Í[‚³+•]‰¿’l
+	 * @return ï¿½]ï¿½ï¿½ï¿½l -1 ï¿½Ì‚Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Í[ï¿½ï¿½+ï¿½]ï¿½ï¿½ï¿½l
 	 */
 	public int calculateScore() {
 		int score = 0;
 		int l = board.length;
 		for (int i = 0; i < l; i++) {
 			for (int j = 0; j < l; j++) {
-				if (board[i][j] == (i * 3 + j + 1)) {// i*3+j+1‚Í‚»‚±‚É–{—ˆ‚ ‚é‚×‚«”
+				if (board[i][j] == (i * 3 + j + 1)) {// i*3+j+1ï¿½Í‚ï¿½ï¿½ï¿½ï¿½É–{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×‚ï¿½ï¿½ï¿½
 					continue;
 				}
 				
@@ -65,7 +64,7 @@ public class Board {
 	}
 
 	/**
-	 * board‚Ì“à—e‚ğ•W€o—Í‚É•\¦
+	 * boardï¿½Ì“ï¿½ï¿½eï¿½ï¿½Wï¿½ï¿½ï¿½oï¿½Í‚É•\ï¿½ï¿½
 	 */
 	public void printBoard() {
 		int l = board.length;
