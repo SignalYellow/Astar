@@ -30,11 +30,19 @@ public class PuzzleSolver {
 			}
 		}
 
+		int flag = 1;
 		
-		//Board fBoard = new Board(board, 0);
-		BoardManhattan fBoard = new BoardManhattan(board, 0);
-		pQueue.add(fBoard);
-		executeManhattan();
+		if(flag == 1){
+			Board fBoard = new Board(board, 0);
+			pQueue.add(fBoard);
+			executeUnequal();
+		}else{
+			BoardManhattan fBoard = new BoardManhattan(board, 1);
+			pQueue.add(fBoard);
+			executeManhattan();
+		}
+		
+		
 	}
 	
 	public static void executeUnequal(){
@@ -49,7 +57,6 @@ public class PuzzleSolver {
 			}
 
 			for (int i = 1; i < 5; i++) {
-
 				Board t = b.createNextBoard(i);
 				if (t != null) {
 					pQueue.add(t);
@@ -60,7 +67,6 @@ public class PuzzleSolver {
 
 	public static void executeManhattan() {
 		int id = 0;
-		int count = 0;
 		while (true) {
 			BoardManhattan b = (BoardManhattan) pQueue.poll();
 			System.out.println("---------------ID:" + ++id);
