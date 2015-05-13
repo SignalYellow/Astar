@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Board {
+public class Board implements ScoreCalculatable{
 	int[][] board;
 	int count;
 	List<Integer> path;
@@ -163,4 +163,42 @@ public class Board {
 			
 	}
 
+
+
+	public int[][] getBoard() {
+		return board;
+	}
+
+
+
+	public void setBoard(int[][] board) {
+		this.board = board;
+	}
+
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+
+
+	public List<Integer> getPath() {
+		return path;
+	}
+
+
+
+	public void setPath(List<Integer> path) {
+		this.path = path;
+	}
+
+	
+	
 }

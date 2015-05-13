@@ -2,10 +2,11 @@ package Astar;
 
 import java.util.Comparator;
 
-public class MyComparator implements Comparator<Board>{
+public class MyComparator implements Comparator<ScoreCalculatable>{
 
+	
 	@Override
-	public int compare(Board o1, Board o2) {
+	public int compare(ScoreCalculatable o1, ScoreCalculatable o2) {
 		// TODO Auto-generated method stub
 		
 		int s1 = o1.calculateScore();
@@ -16,8 +17,5 @@ public class MyComparator implements Comparator<Board>{
 		}else if(s1 < s2){
 			return -1;
 		}
-		
 		return 0;
-	}
-
-}
+	}}
