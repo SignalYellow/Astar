@@ -43,7 +43,7 @@ public class Board implements ScoreCalculatable{
 		int l = board.length;
 		for (int i = 0; i < l; i++) {
 			for (int j = 0; j < l; j++) {
-				if (board[i][j] == (i * 3 + j + 1)) {// i*3+j+1�͂����ɖ{������ׂ���
+				if (board[i][j] == (i * l + j + 1)) {// i*3+j+1�͂����ɖ{������ׂ���
 					continue;
 				}
 				
@@ -82,6 +82,12 @@ public class Board implements ScoreCalculatable{
 			System.out.print(i + " ");
 		}
 		System.out.println("--------------\n");
+	}
+	
+	public void printPath(){
+		for(Integer i:this.path){
+			System.out.println(i);
+		}
 	}
 	
 	

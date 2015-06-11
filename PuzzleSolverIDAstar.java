@@ -12,9 +12,9 @@ public class PuzzleSolverIDAstar {
 		
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		int l = Integer.parseInt(br.readLine());
-
+		
+		//int l = Integer.parseInt(br.readLine());
+		int l =3;
 		int[][] board = new int[l][l];
 
 		for (int i = 0; i < l; i++) {
@@ -30,24 +30,24 @@ public class PuzzleSolverIDAstar {
 			}
 		}
 
-		
+		int cutoff = 3; // 重要: カットオフ
 		int flag = 1;
 		boolean isEnd = false;
-		int cutoff = 1;
-		while(!isEnd){
+		
+		
 			
 			if(flag == 1){
 				Board fBoard = new Board(board, 0);
 				stack.push(fBoard);
 				isEnd = executeUnequal(cutoff);
 			}else{
-				BoardManhattan fBoard = new BoardManhattan(board, 1);
+				BoardManhattan fBoard = new BoardManhattan(board, 0);
 				stack.push(fBoard);
 				isEnd = executeManhattan(cutoff);
 			}
 			
 			System.out.println("-----------------cutoff:" + cutoff++);
-		}
+		
 		
 		
 	}
@@ -62,15 +62,19 @@ public class PuzzleSolverIDAstar {
 			}
 			
 			Board b =  (Board) stack.pop();
+			int score = b.calculateScore();
+			
+			
 			System.out.println("---------------ID:" + ++id + " cutoff:" + cutoff);
 			b.printBoard();
-			if (b.calculateScore() == -1) {
+			
+			if (score == -1) {
 				frag = true;
 			}
-			
-			if(b.count > cutoff){
+			if(score > cutoff){
 				continue;
 			}
+			
 
 			for (int i = 1; i < 5; i++) {
 				Board t = b.createNextBoard(i);
@@ -91,13 +95,14 @@ public class PuzzleSolverIDAstar {
 			}
 			
 			BoardManhattan b = (BoardManhattan) stack.pop();
-			System.out.println("---------------ID:" + ++id + " cutoff:" + cutoff);
+			System.out.println("---------------ID:" + ++id);
 			b.printBoard();
-			if (b.calculateScore() == -1) {
-				return true;
-			}
+			int score = b.calculateScore();
 			
-			if(b.count >= cutoff){
+			if (score == -1) {
+				frag = true;
+			}
+			if(score > cutoff){
 				continue;
 			}
 

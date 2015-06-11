@@ -13,8 +13,8 @@ public class PuzzleSolver {
 		pQueue = new PriorityQueue(1, new MyComparator());
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int l = Integer.parseInt(br.readLine());
-
+		//int l = Integer.parseInt(br.readLine());
+		int l = 3;
 		int[][] board = new int[l][l];
 
 		for (int i = 0; i < l; i++) {
@@ -37,7 +37,7 @@ public class PuzzleSolver {
 			pQueue.add(fBoard);
 			executeUnequal();
 		}else{
-			BoardManhattan fBoard = new BoardManhattan(board, 1);
+			BoardManhattan fBoard = new BoardManhattan(board, 0);
 			pQueue.add(fBoard);
 			executeManhattan();
 		}
@@ -89,4 +89,5 @@ public class PuzzleSolver {
 
 /*
  * 162 453 780
+ * 152 703 846  8 manhattann
  */
